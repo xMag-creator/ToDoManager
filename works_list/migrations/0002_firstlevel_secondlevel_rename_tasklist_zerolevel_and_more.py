@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('task_list', '0001_initial'),
+        ('works_list', '0001_initial'),
     ]
 
     operations = [
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(max_length=256)),
                 ('finished', models.BooleanField(default=False)),
-                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_list.firstlevel')),
+                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='works_list.firstlevel')),
             ],
             options={
                 'abstract': False,
@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(max_length=256)),
                 ('finished', models.BooleanField(default=False)),
-                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_list.secondlevel')),
+                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='works_list.secondlevel')),
             ],
             options={
                 'abstract': False,
@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(max_length=256)),
                 ('finished', models.BooleanField(default=False)),
-                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_list.thirdlevel')),
+                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='works_list.thirdlevel')),
             ],
             options={
                 'abstract': False,
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='firstlevel',
             name='zeroLevel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_list.zerolevel'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='works_list.zerolevel'),
         ),
         migrations.CreateModel(
             name='FifthLevel',
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=64)),
                 ('description', models.CharField(max_length=256)),
                 ('finished', models.BooleanField(default=False)),
-                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_list.fourthlevel')),
+                ('zeroLevel', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='works_list.fourthlevel')),
             ],
             options={
                 'abstract': False,

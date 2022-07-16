@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/works_list/style.css' %}">
+    <div id="content_menu">
+        <a href="{% url 'add_work' %}">Add new work</a>
+    </div>
+    <div>
+        <ul id="works_list">
+        {% for task in works %}
+            <li>
+                <div id="row">
+                    <div class="name">{{ task.name }}</div>
+                    <div id="buttons">
+                        <a class="menuButton row_button" href="{% url 'edit_work' pk=task.id %}">Edit</a>
+                        <a class="menuButton row_button" href="{% url 'delete_work' pk=task.id %}">Delete</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

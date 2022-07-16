@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from works_list import views as works
+
 urlpatterns = [
+    # main urls
     path('admin/', admin.site.urls),
+    path('', works.WorksListView.as_view(), name='works_list'),
+
+    # works list urls
+    path('add_work/', works.CreateWorkView.as_view(), name='add_work'),
+    path('delete_work/<int:pk>/', works.DeleteWorkView.as_view(), name='delete_work'),
+    path('edit_work/<int:pk>/', works.EditWorkView.as_view(), name='edit_work'),
+
 ]
